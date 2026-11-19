@@ -65,7 +65,7 @@
   document.body.classList.add("has-custom-cursor");
 
   const cursor = document.querySelector(".custom-cursor");
-  const dot = cursor?.querySelector(".cursor-dot");
+  const pointerField = document.querySelector(".pointer-field");
   let pointerX = innerWidth / 2;
   let pointerY = innerHeight / 2;
   let frame = 0;
@@ -76,6 +76,8 @@
     frame = requestAnimationFrame(() => {
       cursor?.style.setProperty("--cursor-x", `${pointerX}px`);
       cursor?.style.setProperty("--cursor-y", `${pointerY}px`);
+      pointerField?.style.setProperty("--pointer-x", `${pointerX}px`);
+      pointerField?.style.setProperty("--pointer-y", `${pointerY}px`);
       frame = 0;
     });
   };

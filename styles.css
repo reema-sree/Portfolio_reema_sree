@@ -38,3 +38,10 @@
 .counter{font:inherit;color:inherit;font-variant-numeric:tabular-nums}
 @keyframes spin{to{transform:translate3d(var(--parallax-x,0px),var(--parallax-y,0px),0) rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.motion-ready .hero-word{opacity:1;animation:none}.has-custom-cursor,.has-custom-cursor a,.has-custom-cursor button{cursor:auto!important}.custom-cursor{display:none!important}}
+.pointer-field{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle,#d5f36630 1px,transparent 1.35px);background-size:30px 30px;opacity:.34}
+.pointer-field::before,.pointer-field::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s ease}
+.pointer-field::before{background-image:radial-gradient(circle,#d5f366bd 1.2px,transparent 1.8px);background-size:30px 30px;mask-image:radial-gradient(circle 190px at var(--pointer-x,50%) var(--pointer-y,50%),#000 0%,transparent 100%);-webkit-mask-image:radial-gradient(circle 190px at var(--pointer-x,50%) var(--pointer-y,50%),#000 0%,transparent 100%)}
+.pointer-field::after{background:radial-gradient(circle 250px at var(--pointer-x,50%) var(--pointer-y,50%),#d5f36614 0%,transparent 100%)}
+body.has-custom-cursor>.pointer-field::before,body.has-custom-cursor>.pointer-field::after{opacity:1}
+body>header,body>main,body>footer{position:relative;z-index:1}
+@media(prefers-reduced-motion:reduce){.pointer-field::before,.pointer-field::after{transition:none}}
